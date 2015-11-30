@@ -1,0 +1,1 @@
+var appPkmn = angular.module("pokedex", ["ngRoute"]);

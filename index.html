@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="pokedex">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+  <!--angular-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+  <script src="app.js"></script>
+  <script src="controller.js"></script>
+  <script src="pokedexAPIService.js"></script>
+  <script src="appConfig.js"></script>
+  <script src="filters.js"></script>
+  <script src="directives.js"></script>
+  <script src="routeConfig.js"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <!--<img class="text-center pkmnBackground" src="http://3.bp.blogspot.com/-Jthh4DNNjd4/UwUYwuJtm3I/AAAAAAAAAfM/sQIJfEeIjps/s1600/8_bit_pokeball_by_nathanmarino-d4nsey6.png" alt="...">-->
+    <nav class="navbar" ng-controller="sideBarCtrl" side-bar="active">
+      <div class="navbar-toggle-btn">
+        <div class="nav-toggle" ng-click="toggle()">
+          <span class="glyphicon glyphicon-option-vertical"></span>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <span>Pokedex</span>
+          </a>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="navbar-search">
+          <input type="text" ng-model="nomePkmn" class="form-control" placeholder="Search..." search-debug/>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="navbar-body">
+          <ul class="list-group" ng-controller="listarPkmnsCtrl">
+            <li ng-repeat="pkmn in pkmns | filter: nomePkmn" class="list-group-item">
+              <a href="#/pokemon/{{pkmn.resource_uri | pkmnId}}">#{{pkmn.resource_uri | pkmnId |formatNumber}} - {{ pkmn.name | pascalcase }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  </div>
+  <!--screen-->
+  <div class="container">
+    <div ng-view></div>
+  </div>
+
+</body>
+
+</html>

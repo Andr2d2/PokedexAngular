@@ -1,0 +1,80 @@
+body {
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 9pt;
+  background-color: #F71313;
+}
+
+.navbar {
+  position: fixed;
+  height: 100%;
+  border-radius: 0px;
+  border: 0px;
+  z-index: 999;
+  background-color: black;
+  top: 0px;
+  left: -250px;
+  transition: 100ms left;
+  width: 250px;
+  box-shadow: 3px 2px 7px -2px rgba(0,0,0,0.75);
+}
+
+.navbar-header {
+  width: 100%;
+  background-color: red;
+}
+
+.navbar-brand span {
+  color: white;
+}
+
+.navbar-search {
+  margin: 5px;
+  background-color: black;
+}
+
+.navbar-body {
+  background-color: white;
+  overflow-y: scroll;
+  height: 500px;
+}
+
+.open {
+  left: 0px;
+}
+
+.nav-toggle {
+  z-index: 999999;
+  position: absolute;
+  left: 255px;
+}
+
+.nav-toggle span {
+  margin: 5px;
+  color: white;
+  font-size: 18pt;
+}
+
+.toggle-img {
+  width: 40px;
+  height: auto;
+}
+
+.list-group-item {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.media .media-object {
+  width: 192px;
+  height: auto;
+}
+
+.pkmnImg {
+  width: 210px;
+}
+
+.pkmnBackground {
+  width: 100%;
+  height: auto;
+  opacity: .05;
+}
